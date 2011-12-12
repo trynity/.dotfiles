@@ -1,0 +1,53 @@
+[user]
+	name = <%= CONFIG['git']['name'] %>
+	email = <%= CONFIG['git']['email'] %>
+[alias]
+	# Two-character shortcuts
+	ci = commit
+	cl = clone
+	st = status
+	co = checkout
+	sm = submodule
+	cp = cherry-pick
+	dt = difftool
+	
+	# Plural shortcuts
+	remotes = remote -v
+	branches = branch -a
+	tags = tag -l
+	submodules = submodule status
+	
+	# Helpful shortcuts
+	unstage = reset HEAD --
+	track = checkout --track
+	upstream = remote add upstream
+	discard = checkout --
+
+[github]
+	user = <%= CONFIG['github']['user'] %>
+	token = <%= CONFIG['github']['token'] %>
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[advice]
+	pushNonFastForward = false
+[merge]
+	tool = opendiff
+[branch]
+	autosetupmerge = true
+[rerere]
+	enabled = true
+[difftool]
+	prompt = false
+
+# Platform Specific Settings
+<% if OS.mac? %>
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[diff]
+	renames = copies
+	mnemonicprefix = true
+	tool = Kaleidoscope
+<% end %>
