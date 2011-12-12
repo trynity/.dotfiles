@@ -1,0 +1,2 @@
+pathmunge "${HOME}/.cabal/bin" # haskell
+pathmunge "${HOME}/.bin" # local bin
