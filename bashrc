@@ -22,5 +22,7 @@ source ~/.bash/homebrew
 # python
 export PYTHONSTARTUP=~/.pythonrc
 
+[[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -w"
+
 # prompt
 [[ -n $RVM_LOADED ]] && export PS1="\h:\W \u [$(rvm-prompt i v )] \$ "
