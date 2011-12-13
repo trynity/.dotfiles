@@ -1,7 +1,5 @@
 source ~/.bash/functions
-
-# Reset PATH
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+source ~/.bash/path
 
 # rvm
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
@@ -15,9 +13,10 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 [[ -r "${HOME}/.perlbrew/etc/bashrc" ]] && source "${HOME}/.perlbrew/etc/bashrc"
 
 # pythonbrew
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+[[ -s "{$HOME}/.pythonbrew/etc/bashrc" ]] && source "{$HOME}/.pythonbrew/etc/bashrc"
 
-source ~/.bash/path
+# python
+export PYTHONSTARTUP=~/.pythonrc
 
 # prompt
 export PS1="\h:\W \u [$(rvm-prompt i v )] \$ "
