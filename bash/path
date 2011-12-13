@@ -1,2 +1,6 @@
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 pathmunge "${HOME}/.cabal/bin" # haskell
 pathmunge "${HOME}/.bin" # local bin
+
+[[ $OSTYPE =~ darwin ]] && pathmunge /usr/local/share/python
