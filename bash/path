@@ -2,5 +2,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 pathmunge "${HOME}/.cabal/bin" # haskell
 pathmunge "${HOME}/.bin" # local bin
+pathmunge "/usr/texbin/"
 
 [[ $OSTYPE =~ darwin ]] && pathmunge /usr/local/share/python
+[[ $OSTYPE =~ darwin ]] && [[ -d /opt/X11 ]] && pathmunge /opt/X11/bin
