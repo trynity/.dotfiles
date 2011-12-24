@@ -5,6 +5,7 @@ source ~/.bash/homebrew
 # rvm
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" && export RVM_LOADED=1
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+[[ -s "$HOME/.rvm/contrib/ps1_functions" ]] && source "$HOME/.rvm/contrib/ps1_functions"
 
 # nvm
 [[ -r "${HOME}/.nvm/nvm.sh" ]] && source "${HOME}/.nvm/nvm.sh" && export NVM_LOADED=1
@@ -25,4 +26,4 @@ export PYTHONSTARTUP=~/.pythonrc
 [[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -w"
 
 # prompt
-[[ -n $RVM_LOADED ]] && export PS1="\h:\W \u [$(rvm-prompt i v )] \$ "
+[[ -n $RVM_LOADED ]] && ps1_set --prompt ∴
