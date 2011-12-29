@@ -2,6 +2,9 @@ source ~/.bash/functions
 source ~/.bash/path
 source ~/.bash/homebrew
 
+# Linux
+[[ $OSTYPE =~ linux ]] && alias brew=emerge
+
 # rvm
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" && export RVM_LOADED=1
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
