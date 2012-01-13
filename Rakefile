@@ -5,7 +5,12 @@ require 'fileutils'
 require 'yaml'
 require 'os'
 
-CONFIG = YAML::load(File.open('config.yml'))
+begin
+  CONFIG = YAML::load(File.open('config.yml')) 
+rescue 
+  puts "No configuration file!"
+  CONFIG = Hash.new
+end
 
 task :default => [:install]
 
