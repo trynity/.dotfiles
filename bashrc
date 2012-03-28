@@ -26,7 +26,15 @@ source ~/.bash/homebrew
 # python
 export PYTHONSTARTUP=~/.pythonrc
 
-[[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -w"
+[[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -wn"
+
+# Homebrew
+[[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
+
+# kerl
+[[ -f /usr/local/erlang/R14B04/activate ]] && . /usr/local/erlang/R14B04/activate
 
 # prompt
-[[ -n $RVM_LOADED ]] && ps1_set --prompt ∴
+source ~/.bash/prompt
+
+# [[ -n $RVM_LOADED ]] && ps1_set --prompt $(kerl prompt) ∴
