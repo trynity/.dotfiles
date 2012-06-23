@@ -1,6 +1,7 @@
 source ~/.bash/functions
 source ~/.bash/path
 source ~/.bash/homebrew
+source ~/.bash/java
 
 # Linux
 [[ $OSTYPE =~ linux ]] && alias brew=emerge
