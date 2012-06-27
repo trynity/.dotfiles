@@ -33,7 +33,7 @@ export PYTHONSTARTUP=~/.pythonrc
 [[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
 
 # kerl
-[[ -f /usr/local/erlang/R14B04/activate ]] && . /usr/local/erlang/R14B04/activate
+[[ -f /usr/local/erlang/R15B01/activate ]] && . /usr/local/erlang/R15B01/activate
 
 # prompt
 source ~/.bash/prompt
