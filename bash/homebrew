@@ -1,4 +1,3 @@
 if [[ $OSTYPE =~ darwin && $(which brew) ]]; then
 	pathmunge /usr/local/share/python
-	export NODE_PATH="/usr/local/lib/node_modules"
 fi
