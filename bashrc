@@ -2,6 +2,7 @@ source ~/.bash/functions
 source ~/.bash/path
 source ~/.bash/homebrew
 source ~/.bash/java
+source ~/.bash/alias
 
 # Linux
 [[ $OSTYPE =~ linux ]] && alias brew=emerge
@@ -38,4 +39,8 @@ export PYTHONSTARTUP=~/.pythonrc
 # prompt
 source ~/.bash/prompt
 
-# [[ -n $RVM_LOADED ]] && ps1_set --prompt $(kerl prompt) ∴
+# Deal with iTerm/SSH Tab Titles
+export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+
+# autoenv
+[[ -f `brew --prefix autoenv`/activate.sh ]] && source `brew --prefix autoenv`/activate.sh
