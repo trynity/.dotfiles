@@ -1,3 +1,4 @@
 if [[ $OSTYPE =~ darwin && $(which brew) ]]; then
-	pathmunge /usr/local/share/python
+  pathmunge /usr/local/share/python
+  export MANPATH=/usr/local/share/man:$MANPATH
 fi
