@@ -4,6 +4,9 @@ source ~/.bash/homebrew
 source ~/.bash/java
 source ~/.bash/alias
 
+# Allow ! in commands
+export histchars=
+
 # Linux
 [[ $OSTYPE =~ linux ]] && alias brew=emerge
 
@@ -14,6 +17,7 @@ source ~/.bash/alias
 
 # nvm
 [[ -r "${HOME}/.nvm/nvm.sh" ]] && source "${HOME}/.nvm/nvm.sh" && export NVM_LOADED=1
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # perlbrew
 [[ -s "${HOME}/.perlbrew" ]] && export PERLBREW_ROOT="${HOME}/.perlbrew" && export PERLBREW_LOADED=1
