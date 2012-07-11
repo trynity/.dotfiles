@@ -2,6 +2,7 @@ source ~/.bash/functions
 source ~/.bash/path
 source ~/.bash/homebrew
 source ~/.bash/java
+source ~/.bash/python
 source ~/.bash/alias
 
 # Allow ! in commands
@@ -32,6 +33,7 @@ export histchars=
 # python
 export PYTHONSTARTUP=~/.pythonrc
 
+# Sublime Text 2 as default editor on MacOSX
 [[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -n"
 
 # Homebrew
