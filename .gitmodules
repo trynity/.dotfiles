@@ -1,6 +1,7 @@
 [submodule "nvm"]
 	path = nvm
-	url = git://github.com/creationix/nvm.git
+	# url = git://github.com/creationix/nvm.git
+	url = git@github.com:mirell/nvm.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
