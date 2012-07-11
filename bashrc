@@ -32,7 +32,7 @@ export histchars=
 # python
 export PYTHONSTARTUP=~/.pythonrc
 
-[[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -wn"
+[[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -n"
 
 # Homebrew
 [[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
