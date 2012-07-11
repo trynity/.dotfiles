@@ -1,5 +1,8 @@
 [ui]
 username = <%= "#{CONFIG['hg']['name']} <#{CONFIG['hg']['email']}>" %>
+<% if OS.mac? %>
+editor = "subl -nw"
+<% end %>
 
 [extensions]
 hgext.bookmarks =
