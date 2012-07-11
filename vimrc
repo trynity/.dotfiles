@@ -10,6 +10,7 @@ set nocompatible " Don't operate in vi mode
 
 set backup
 set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
 
 set history=100
 
