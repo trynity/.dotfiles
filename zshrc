@@ -39,6 +39,9 @@ path=(/usr/local/bin /usr/local/sbin $path)
 # TexLive
 (($+commands[texdist])) && path+=$(texdist --current --expand)/bin/universal-darwin
 
+# keychain for SSH/GPG keys
+(($+commands[keychain])) && eval $(keychain --eval)
+
 # Default Editor for MacOSX: Sublime Text 2
 if [[ $OSTYPE =~ darwin ]]; then 
   (($+commands[subl])) && export EDITOR="subl -n"
