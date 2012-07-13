@@ -12,7 +12,6 @@ export histchars=
 [[ $OSTYPE =~ linux ]] && alias brew=emerge
 
 # rvm
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" && export RVM_LOADED=1
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "$HOME/.rvm/contrib/ps1_functions" ]] && source "$HOME/.rvm/contrib/ps1_functions"
 
@@ -50,3 +49,5 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
 
 # autoenv
 [[ -f `brew --prefix autoenv`/activate.sh ]] && source `brew --prefix autoenv`/activate.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
