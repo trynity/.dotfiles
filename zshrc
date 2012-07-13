@@ -37,7 +37,7 @@ unsetopt correct_all
 path=(/usr/local/bin /usr/local/sbin $path)
 
 # TexLive
-path+=$(texdist --current --expand)/bin/universal-darwin
+(($+commands[texdist])) && path+=$(texdist --current --expand)/bin/universal-darwin
 
 # Default Editor for MacOSX: Sublime Text 2
 if [[ $OSTYPE =~ darwin ]]; then 
