@@ -1,9 +1,3 @@
-# rvm
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
-
-# nvm
-[[ -r "${HOME}/.nvm/nvm.sh" ]] && source "${HOME}/.nvm/nvm.sh"
-
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="mirell"
@@ -38,9 +32,6 @@ path=(/usr/local/bin /usr/local/sbin $path)
 
 # TexLive
 (($+commands[texdist])) && path+=$(texdist --current --expand)/bin/universal-darwin
-
-# keychain for SSH/GPG keys
-(($+commands[keychain])) && eval $(keychain --eval)
 
 # Default Editor for MacOSX: Sublime Text 2
 if [[ $OSTYPE =~ darwin ]]; then 
