@@ -38,3 +38,7 @@ if [[ $OSTYPE =~ darwin ]]; then
   (($+commands[subl])) && export EDITOR="subl -n"
   path=(/usr/local/share/python $path)
 fi
+
+if [[ -z $SSH_CLIENT ]]; then
+  (($+commands[keychain])) && eval $(keychain --eval)
+fi
