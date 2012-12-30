@@ -30,6 +30,9 @@ unsetopt correct_all
 # Add /usr/local/[s]bin to PATH
 path=(/usr/local/bin /usr/local/sbin $path)
 
+# Add Haskell's cabal bin directory to PATH
+path+=(${HOME}/.cabal/bin)
+
 # TexLive
 (($+commands[texdist])) && path+=$(texdist --current --expand)/bin/universal-darwin
 
