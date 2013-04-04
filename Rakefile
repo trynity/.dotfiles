@@ -54,9 +54,12 @@ end
 def link_file(file, force = false)
   if file =~ /.erb$/
     puts "Generating ~/.#{file.sub('.erb', '')}"
-    File.open(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"), 'w') do |new_file|
+    file_path = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
+    File.open(file_path, 'w') do |new_file|
       new_file.write Erubis::Eruby.new(File.read(file)).result(binding)
     end
+    # We generally don't want the world to read our lovely configs
+    File.chmod(0600, file_path)
   else
     puts "Linking ~/.#{file}"
     ln_s "#{ENV['PWD']}/#{file}", "#{ENV['HOME']}/.#{file}", :force => force
