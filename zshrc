@@ -2,10 +2,6 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="mirell"
 
-if [[ $OSTYPE =~ darwin ]]; then 
-  alias mou="open /Applications/Mou.app"
-fi
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -31,26 +27,12 @@ source $ZSH/oh-my-zsh.sh
 # Disable autocorrection
 unsetopt correct_all
 
-# Add /usr/local/[s]bin to PATH
-path=(/usr/local/bin /usr/local/sbin $path)
-
-# Add Haskell's cabal bin directory to PATH
-path=(${HOME}/.cabal/bin $path)
-
-# Add Homebrew npm bin directory to PATH
-path=(/usr/local/share/npm/bin $path)
-
 # jenv (Java Environment Switcher) support
-path=(${HOME}/.jenv/bin $path)
 eval "$(jenv init -)"
-
-# TexLive
-(($+commands[texdist])) && path+=$(texdist --current --expand)/bin/universal-darwin
 
 # Default Editor for MacOSX: Sublime Text 2
 if [[ $OSTYPE =~ darwin ]]; then 
   (($+commands[subl])) && export EDITOR="subl -n"
-  path=(/usr/local/share/python $path)
 fi
 
 if [[ -z $SSH_CLIENT ]]; then
