@@ -4,6 +4,13 @@ username = <%= "#{CONFIG['hg']['name']} <#{CONFIG['hg']['email']}>" %>
 editor = "subl -nw"
 <% end %>
 
+<% if OS.mac? %>
+[extdiff]
+cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
+opts.ksdiff = hg
+<% end %>
+
 [extensions]
 hgext.bookmarks =
 hggit = 
+hgext.extdiff =
