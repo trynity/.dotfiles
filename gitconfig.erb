@@ -1,6 +1,7 @@
 [user]
 	name = <%= CONFIG['git']['name'] %>
 	email = <%= CONFIG['git']['email'] %>
+
 [alias]
 	# Two-character shortcuts
 	ci = commit
@@ -26,23 +27,36 @@
 [github]
 	user = <%= CONFIG['github']['user'] %>
 	token = <%= CONFIG['github']['token'] %>
+
+[hub]
+	protocol = https
+
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 	ui = true
+
 [advice]
 	pushNonFastForward = false
+
 [merge]
 	tool = opendiff
+
 [branch]
 	autosetupmerge = true
+
 [rerere]
 	enabled = true
+
 [difftool]
 	prompt = false
 
+[push]
+	default = matching
+
 # Platform Specific Settings
+
 <% if OS.mac? %>
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
@@ -54,5 +68,4 @@
 	editor = "subl -nw"
 <% end %>
 
-[push]
-  default = matching
+
