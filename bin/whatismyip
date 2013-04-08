@@ -1,0 +1,3 @@
+#!/bin/sh
+curl -s http://checkip4.zerigo.com/ | sed -e 's/<[^>]*>//g'
+curl -s http://checkip6.zerigo.com/ | sed -e 's/<[^>]*>//g'
