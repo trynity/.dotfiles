@@ -16,7 +16,7 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-plugins=(brew bundler cpanm gem git git-extras github heroku knife nanoc npm pip rvm vagrant)
+plugins=(brew bundler cpanm gem git git-extras github heroku knife nanoc npm pip rvm vagrant virtualenvwrapper)
 
 if [[ $OSTYPE =~ darwin ]]; then 
   plugins=(osx $plugins)
@@ -38,6 +38,10 @@ fi
 if [[ -z $SSH_CLIENT ]]; then
   (($+commands[keychain])) && eval $(keychain --eval)
 fi
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/share/python/virtualenvwrapper.sh
 
 # Use bash completion scripts
 # autoload bashcompinit
