@@ -16,7 +16,9 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-plugins=(brew bundler cpanm gem git git-extras github heroku knife nanoc npm pip rvm vagrant virtualenvwrapper)
+# Removed plugins:
+# github
+plugins=(brew bundler cpanm gem git git-extras heroku knife nanoc npm pip rvm vagrant virtualenvwrapper)
 
 if [[ $OSTYPE =~ darwin ]]; then 
   plugins=(osx $plugins)
