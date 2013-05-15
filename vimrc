@@ -31,3 +31,7 @@ set statusline+=%=                           " right align
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 set backspace=indent,eol,start
+
+"map :W to :w or :Q to :q
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
