@@ -5,7 +5,7 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	# url = git://github.com/robbyrussell/oh-my-zsh.git
-	url = git@github.com:mirell/oh-my-zs`h.git
+	url = git@github.com:mirell/oh-my-zsh.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
