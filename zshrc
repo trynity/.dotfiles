@@ -51,6 +51,9 @@ zstyle ':completion:*' rehash true
 # Python
 export PYTHONSTARTUP=~/.pythonrc
 
+# Homebrew Casks
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # Use bash completion scripts
 # autoload bashcompinit
 # bashcompinit
