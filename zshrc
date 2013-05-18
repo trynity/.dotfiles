@@ -48,6 +48,9 @@ source /usr/local/share/python/virtualenvwrapper.sh
 # Rehash completions
 zstyle ':completion:*' rehash true
 
+# Python
+export PYTHONSTARTUP=~/.pythonrc
+
 # Use bash completion scripts
 # autoload bashcompinit
 # bashcompinit
