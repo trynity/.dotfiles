@@ -45,6 +45,9 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/share/python/virtualenvwrapper.sh
 
+# Rehash completions
+zstyle ':completion:*' rehash true
+
 # Use bash completion scripts
 # autoload bashcompinit
 # bashcompinit
