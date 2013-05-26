@@ -8,6 +8,12 @@ source ~/.bash/alias
 # Allow ! in commands
 export histchars=
 
+# Change where we save .bash_history
+export HISTFILE=~/.history/bash_history
+
+# Disable less history
+export LESSHISTFILE=/dev/null
+
 # Linux
 [[ $OSTYPE =~ linux ]] && alias brew=emerge
 

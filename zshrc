@@ -54,6 +54,12 @@ export PYTHONSTARTUP=~/.pythonrc
 # Homebrew Casks
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Use .history for zsh's history
+export HISTFILE="${HOME}/.history/zsh_history"
+
+# Disable less history
+export LESSHISTFILE=/dev/null
+
 # Use bash completion scripts
 # autoload bashcompinit
 # bashcompinit
