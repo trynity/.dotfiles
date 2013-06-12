@@ -18,7 +18,11 @@ DISABLE_AUTO_UPDATE="true"
 
 # Removed plugins:
 # github
-plugins=(brew bundler cpanm gem git git-extras heroku knife nanoc npm pip rvm vagrant virtualenvwrapper)
+plugins=(brew bundler cpanm gem git git-extras heroku knife nanoc npm pip rvm vagrant)
+
+if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
+  plugins=(virtualenvwrapper $plugins)
+fi
 
 if [[ $OSTYPE =~ darwin ]]; then 
   plugins=(osx $plugins)
@@ -43,7 +47,7 @@ fi
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/share/python/virtualenvwrapper.sh
+[[ -s /usr/local/share/python/virtualenvwrapper.sh ]] && source /usr/local/share/python/virtualenvwrapper.sh
 
 # Rehash completions
 zstyle ':completion:*' rehash true
