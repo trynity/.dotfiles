@@ -67,3 +67,7 @@ export LESSHISTFILE=/dev/null
 # if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
 #   bash_source $(brew --prefix)/etc/bash_completion
 # fi
+
+# RVM
+[[ -d "/usr/local/rvm/bin" ]] && PATH=$PATH:/usr/local/rvm/bin
+[[ -d "$HOME/.rvm/bin" ]] && PATH=$PATH:$HOME/.rvm/bin
