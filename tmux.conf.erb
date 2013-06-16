@@ -1,17 +1,63 @@
-set -g prefix ^A
+# Set Command Prefix to Ctrl+A to be like screen
+unbind C-b
+set-option -g prefix C-a
+bind C-a send-prefix
+
+### Commands
+
+# Split Windows
+unbind -
 bind - split-window -v
+unbind |
 bind | split-window -h
+
+# Select Panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Resize Panes
+bind H resize-pane -L 5
+bind J resize-pane -D 5
+bind K resize-pane -U 5
+bind L resize-pane -R 5
+
+# Swap Panes
+unbind {
+bind { swap-pane -D
+unbind }
+bind } swap-pane -U
+
+unbind [
+bind [ previous-window
+unbind ]
+bind ] next-window
+
+unbind r
+bind r source-file ~/.tmux.conf; display "Reloaded"
+
+unbind S
 bind S command-prompt -p ssh: "new-window -n %1 'ssh %1'"
+
+# Terminal Emulation
+set -g default-terminal "xterm-256color"
+
+# Reduce Delay
+set -sg escape-time 1
 
 <% if OS.mac? %>
 # Deal with MacOSX Issues
 # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
-set-option -g default-command "reattach-to-user-namespace -l /usr/local/bin/zsh"
+set-option -g default-command "reattach-to-user-namespace -l /usr/bin/env zsh"
 <% end %>
 
 # Enable mouse
-# setw -g mode-mouse on
-# setw -g mouse-select-pane on
+setw -g mode-mouse on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g mouse-select-window on
+
 
 #### COLOUR
 
