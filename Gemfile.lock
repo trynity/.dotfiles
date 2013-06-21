@@ -2,8 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     erubis (2.7.0)
+    git (1.2.5)
     os (0.9.6)
     rake (10.0.4)
+    teamocil (0.4.4)
 
 PLATFORMS
   java
@@ -11,5 +13,7 @@ PLATFORMS
 
 DEPENDENCIES
   erubis
+  git
   os
   rake
+  teamocil
