@@ -17,5 +17,5 @@
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "jenv"]
 	path = jenv
-  # url = git@github.com:hikage/jenv.git
+  # url = git@github.com:gcuisinier/jenv.git
   url = git@github.com:mirell/jenv.git
