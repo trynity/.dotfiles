@@ -19,3 +19,6 @@
 	path = jenv
   # url = git@github.com:gcuisinier/jenv.git
   url = git@github.com:mirell/jenv.git
+[submodule "src/hardlink"]
+	path = src/hardlink
+	url = git@github.com:selkhateeb/hardlink.git
