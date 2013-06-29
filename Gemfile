@@ -7,6 +7,10 @@ group :essential do
   gem 'os'
 end
 
-group :environment do
+group :homebrew do
+  gem 'brewdler'
+end
+
+group :tmux do
   gem 'teamocil'
 end
