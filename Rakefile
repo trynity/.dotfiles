@@ -6,8 +6,8 @@ require 'yaml'
 require 'os'
 
 begin
-  CONFIG = YAML::load(File.open('config.yml')) 
-rescue 
+  CONFIG = YAML::load(File.open('config.yml'))
+rescue
   puts "No configuration file!"
   CONFIG = Hash.new
 end
@@ -16,16 +16,16 @@ task :default => [:install]
 
 desc "Install the dotfiles into user's home directory"
 task :install do
-  
+
   replace_all = false
-  
+
   Dir['*'].each do |file|
-    
+
     excluded = ['Rakefile', 'README.rdoc', 'LICENSE', 'Gemfile', 'Gemfile.lock', 'config.yml']
     next if excluded.include? file
-    
+
     dotfile = File.join(ENV['HOME'], ".#{file}")
-    
+
     if File.exist?(dotfile)
       if File.identical? file, dotfile
         puts "Identical ~/.#{file}"
