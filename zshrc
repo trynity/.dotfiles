@@ -78,3 +78,13 @@ export LESSHISTFILE=/dev/null
 # RVM
 [[ -d "/usr/local/rvm/bin" ]] && PATH=$PATH:/usr/local/rvm/bin
 [[ -d "$HOME/.rvm/bin" ]] && PATH=$PATH:$HOME/.rvm/bin
+
+# perlbrew
+export PERLBREW_ROOT=~/.perlbrew
+[[ -s ${HOME}/.perlbrew/etc/bashrc ]] && source ${HOME}/.perlbrew/etc/bashrc
+
+perlbrew-prompt () {
+  echo '%{$fg[blue]%}‹perl '"$(perlbrew use | sed 's/.*-//')"'›%{$reset_color%}'
+}
+
+RPROMPT="${RPROMPT} $(perlbrew-prompt)"
