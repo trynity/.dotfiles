@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+archive=$1
+
+archive_path=$(greadlink -f $archive)
+tempdir=$(mktemp -d -t $(basename $archive))
+
+export PROMPT="${PS1} (subshell)"
+
+tar -x --strip 1 -f $archive_path -C $tempdir
+cd $tempdir
+git init -q
+git add .
+git commit -q -m "Initial commit"
+
+tempzshrc=$(mktemp -d -t zsh)
+echo "source ${HOME}/.zshrc" > $tempzshrc/.zshrc
+echo 'export PS1="${PS1}(subshell) "' >> $tempzshrc/.zshrc
+
+ZDOTDIR=$tempzshrc zsh
+
+rm -rf $tempzshrc
+
+rm -rf $tempdir
