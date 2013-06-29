@@ -27,6 +27,7 @@ if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
 fi
 
 if [[ $OSTYPE =~ darwin ]]; then 
+  # export PERL5LIB="/Applications/Xcode.app/Contents/Developer/Library/Perl/5.12/darwin-thread-multi-2level"
   plugins=(osx $plugins)
 fi
 
