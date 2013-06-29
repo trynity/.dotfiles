@@ -1,3 +1,5 @@
+fpath=(~/.zsh/completion $fpath)
+
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="mirell"
