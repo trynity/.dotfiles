@@ -19,8 +19,8 @@ DISABLE_AUTO_UPDATE="true"
 # COMPLETION_WAITING_DOTS="true"
 
 # Removed plugins:
-# github
-plugins=(brew bundler cpanm gem git git-extras heroku knife nanoc npm pip rvm vagrant)
+# (none)
+plugins=(brew bundler cpanm gem git github git-extras heroku knife nanoc npm pip rvm vagrant perl)
 
 if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
   plugins=(virtualenvwrapper $plugins)
