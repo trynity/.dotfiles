@@ -95,3 +95,6 @@ RPROMPT="${RPROMPT} $(perlbrew-prompt)"
 # * http://petereisentraut.blogspot.com/2011/09/ccache-and-clang-part-2.html
 export CCACHE_LOGFILE="${HOME}/.log/ccache.log"
 export CCACHE_CPP2=yes # Run cpp twice
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
