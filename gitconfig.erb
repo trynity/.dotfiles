@@ -36,9 +36,6 @@
 [advice]
 	pushNonFastForward = false
 
-[merge]
-	tool = opendiff
-
 [branch]
 	autosetupmerge = true
 
@@ -51,17 +48,27 @@
 [push]
 	default = matching
 
+[mergetool]
+  prompt = false
+
 # Platform Specific Settings
 
 <% if OS.mac? %>
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [diff]
-	renames = copies
-	mnemonicprefix = true
-	tool = Kaleidoscope
+  renames = copies
+  mnemonicprefix = true
+  tool = Kaleidoscope
+[merge]
+  tool = Kaleidoscope
 [core]
 	editor = "subl -nw"
 <% end %>
 
-
+[core]
+  preloadindex = true
+  fsyncobjectfiles = true
