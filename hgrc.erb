@@ -2,15 +2,24 @@
 username = <%= "#{CONFIG['hg']['name']} <#{CONFIG['hg']['email']}>" %>
 <% if OS.mac? %>
 editor = "subl -nw"
+merge = Kaleidoscope
 <% end %>
 
 <% if OS.mac? %>
 [extdiff]
-cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
-opts.ksdiff = hg
+cmd.ksdiff = /usr/local/bin/ksdiff
+opts.ksdiff = --changeset --wait --filelist
+
+[merge-tools]
+Kaleidoscope.executable = /usr/local/bin/ksdiff
+Kaleidoscope.args = --merge --output $output --base $base -- $local $other
 <% end %>
 
 [extensions]
+<% if OS.mac? %>
+hgext.extdiff =
+<% end %>
 hgext.bookmarks =
 hggit = 
 hgext.extdiff =
+prompt = ~/src/hg-prompt/prompt.py
