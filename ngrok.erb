@@ -1,0 +1,11 @@
+auth_token: <%= CONFIG['ngrok']['auth_token'] %>
+tunnels:
+  ssh:
+    hostname: "ngrok.mirell.org"
+    proto:
+      tcp: 22
+  node-dev:
+    hostname: "ngrok.mirell.org"
+    proto:
+      http: 8080
+    
