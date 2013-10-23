@@ -55,3 +55,6 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
 command -v brew && [[ -f `brew --prefix autoenv`/activate.sh ]] && source `brew --prefix autoenv`/activate.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# travis
+[[ -s "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
