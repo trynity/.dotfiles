@@ -52,6 +52,6 @@ source ~/.bash/prompt
 export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
 # autoenv
-[[ -f `brew --prefix autoenv`/activate.sh ]] && source `brew --prefix autoenv`/activate.sh
+command -v brew && [[ -f `brew --prefix autoenv`/activate.sh ]] && source `brew --prefix autoenv`/activate.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
