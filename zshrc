@@ -20,6 +20,8 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 # Removed plugins:
 # (none)
 plugins=(brew bundler cpanm gem git github git-extras heroku knife nanoc npm pip rvm vagrant perl)
