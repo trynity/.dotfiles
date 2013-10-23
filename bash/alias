@@ -1,2 +1,2 @@
 # hub for GitHub
-eval "$(hub alias -s)"
+command -v hub && eval "$(hub alias -s)"
