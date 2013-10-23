@@ -49,7 +49,9 @@ if [[ $OSTYPE =~ darwin ]]; then
 fi
 
 if [[ -z $SSH_CLIENT ]]; then
-  (($+commands[keychain])) && eval $(keychain --eval)
+  # Too many keys in the keychain
+  # (($+commands[keychain])) && eval $(keychain --eval) && eval $(ssh-add ~/.ssh/keys/*[^.pub] &> /dev/null)
+  (($+commands[keychain])) && eval $(keychain --eval) &> /dev/null)
 fi
 
 # virtualenvwrapper
