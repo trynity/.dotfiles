@@ -1,3 +1,4 @@
+source ~/.bash/completions
 source ~/.bash/functions
 source ~/.bash/path
 source ~/.bash/homebrew
@@ -40,9 +41,6 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # Sublime Text 2 as default editor on MacOSX
 [[ $OSTYPE =~ darwin && $(which subl) ]] && export EDITOR="subl -n"
-
-# Homebrew
-[[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
 
 # kerl
 [[ -f /usr/local/erlang/R15B01/activate ]] && . /usr/local/erlang/R15B01/activate
