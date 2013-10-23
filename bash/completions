@@ -1,0 +1,2 @@
+# Homebrew
+command -v brew > /dev/null 2>&1 && [[ -f `brew --prefix`/etc/bash_completion ]] && . `brew --prefix`/etc/bash_completion
