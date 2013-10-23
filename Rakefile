@@ -5,6 +5,11 @@ require 'fileutils'
 require 'yaml'
 require 'os'
 
+if OS.mac?
+  require 'keychain'
+  KEYCHAIN = Keychain.default
+end
+
 begin
   CONFIG = YAML::load(File.open('config.yml'))
 rescue

@@ -1,1 +1,1 @@
-<%= CONFIG['gist']['token'] %>
+<%= KEYCHAIN.generic_passwords.where(:service => 'github', :account => 'gist').first.password %>

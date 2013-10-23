@@ -5,6 +5,7 @@ group :essential do
   gem 'git'
   gem 'erubis'
   gem 'os'
+  gem 'ruby-keychain', :require => 'keychain'
 end
 
 group :homebrew do
