@@ -1,5 +1,8 @@
 [[ -r "${HOME}/.nvm/nvm.sh" ]] && source "${HOME}/.nvm/nvm.sh"
 
+setopt promptsubst
+setopt promptpercent
+
 fpath=(~/.zsh/completion $fpath)
 
 ZSH=$HOME/.oh-my-zsh
