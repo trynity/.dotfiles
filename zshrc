@@ -51,7 +51,7 @@ fi
 if [[ -z $SSH_CLIENT ]]; then
   # Too many keys in the keychain
   # (($+commands[keychain])) && eval $(keychain --eval) && eval $(ssh-add ~/.ssh/keys/*[^.pub] &> /dev/null)
-  (($+commands[keychain])) && eval $(keychain --eval) &> /dev/null)
+  (($+commands[keychain])) && eval $(keychain --eval)
 fi
 
 # virtualenvwrapper
