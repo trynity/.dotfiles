@@ -1,3 +1,5 @@
+[[ -r "${HOME}/.nvm/nvm.sh" ]] && source "${HOME}/.nvm/nvm.sh"
+
 fpath=(~/.zsh/completion $fpath)
 
 ZSH=$HOME/.oh-my-zsh
