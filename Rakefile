@@ -21,7 +21,7 @@ task :install do
 
   Dir['*'].each do |file|
 
-    excluded = ['Rakefile', 'README.rdoc', 'LICENSE', 'Gemfile', 'Gemfile.lock', 'config.yml']
+    excluded = ['Rakefile', 'README.rdoc', 'LICENSE', 'Gemfile', 'Gemfile.lock', 'config.yml', 'ssh']
     next if excluded.include? file
 
     dotfile = File.join(ENV['HOME'], ".#{file}")
