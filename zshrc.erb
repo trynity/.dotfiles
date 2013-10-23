@@ -89,14 +89,11 @@ export LESSHISTFILE=/dev/null
 [[ -d "$HOME/.rvm/bin" ]] && PATH=$PATH:$HOME/.rvm/bin
 
 # perlbrew
-export PERLBREW_ROOT=~/.perlbrew
-[[ -s ${HOME}/.perlbrew/etc/bashrc ]] && source ${HOME}/.perlbrew/etc/bashrc
+if [[ -s ${HOME}/.perlbrew/etc/bashrc ]]; then
+	export PERLBREW_ROOT=~/.perlbrew
+	source ${HOME}/.perlbrew/etc/bashrc
+fi
 
-perlbrew-prompt () {
-  echo '%{$fg[blue]%}‹perl '"$(perlbrew use | sed 's/.*-//')"'›%{$reset_color%}'
-}
-
-RPROMPT="${RPROMPT} $(perlbrew-prompt)"
 
 # ccache configuration
 # Per:
