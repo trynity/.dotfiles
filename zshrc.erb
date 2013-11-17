@@ -14,7 +14,7 @@ if [[ -s "${HOME}/.perlbrew/etc/bashrc" ]]; then
 fi
 
 # phpbrew
-if [[ -s "${HOME}/.phpbrew/bashrc" ]]; then 
+if [[ -s "${HOME}/.phpbrew/bashrc" ]]; then
   export PHPBREW_SET_PROMPT=1
   source "${HOME}/.phpbrew/bashrc"
 fi
@@ -25,6 +25,7 @@ fi
 # RVM
 [[ -d "/usr/local/rvm/bin" ]] && path+="/usr/local/rvm/bin"
 [[ -d "${HOME}/.rvm/bin" ]] && path+="${HOME}/.rvm/bin"
+export rvmsudo_secure_path=0 # Disable warning with "rvmsudo"
 
 # tmuxinator
 [[ -s "${HOME}/.tmuxinator/scripts/tmuxinator" ]] && source "${HOME}/.tmuxinator/scripts/tmuxinator"
@@ -85,7 +86,7 @@ if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
   plugins+=(virtualenvwrapper)
 fi
 
-if [[ $OSTYPE =~ darwin ]]; then 
+if [[ $OSTYPE =~ darwin ]]; then
   # export PERL5LIB="/Applications/Xcode.app/Contents/Developer/Library/Perl/5.12/darwin-thread-multi-2level"
   plugins+=(osx)
 fi
@@ -93,7 +94,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Default Editor for MacOSX: Sublime Text
-if [[ $OSTYPE =~ darwin ]]; then 
+if [[ $OSTYPE =~ darwin ]]; then
   (($+commands[subl])) && export EDITOR="subl -n"
 fi
 
@@ -103,7 +104,7 @@ if [[ -z $SSH_CLIENT ]]; then
   (($+commands[keychain])) && eval $(keychain --eval)
 fi
 
-# virtualenvwrapper 
+# virtualenvwrapper
 if [[ -s "/usr/local/share/python/virtualenvwrapper.sh" ]]; then
   export WORKON_HOME="${HOME}/.virtualenvs"
   source "/usr/local/share/python/virtualenvwrapper.sh"
@@ -151,7 +152,7 @@ typeset -U path
 [[ -d "/usr/local/opt/android-sdk" ]] && export ANDROID_HOME="/usr/local/opt/android-sdk"
 
 # OpenSSL Certs
-if [[ -s "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]]; then 
+if [[ -s "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]]; then
 	export SSL_CERT_FILE="/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
 fi
 
