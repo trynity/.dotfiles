@@ -30,6 +30,9 @@ export rvmsudo_secure_path=0 # Disable warning with "rvmsudo"
 # tmuxinator
 [[ -s "${HOME}/.tmuxinator/scripts/tmuxinator" ]] && source "${HOME}/.tmuxinator/scripts/tmuxinator"
 
+# Google Depot Tools
+[[ -d "${HOME}/depot_tools" ]] && path+="${HOME}/depot_tools"
+
 setopt promptsubst
 setopt promptpercent
 unsetopt correct_all # Disable autocorrection
