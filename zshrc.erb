@@ -99,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # Default Editor for MacOSX: Sublime Text
 if [[ $OSTYPE =~ darwin ]]; then
   (($+commands[subl])) && export EDITOR="subl -n"
+  alias updatedb="/usr/libexec/locate.updatedb"
 fi
 
 if [[ -z $SSH_CLIENT ]]; then
