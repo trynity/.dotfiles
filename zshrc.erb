@@ -31,7 +31,7 @@ export rvmsudo_secure_path=0 # Disable warning with "rvmsudo"
 [[ -s "${HOME}/.tmuxinator/scripts/tmuxinator" ]] && source "${HOME}/.tmuxinator/scripts/tmuxinator"
 
 # Google Depot Tools
-[[ -d "${HOME}/depot_tools" ]] && path+="${HOME}/depot_tools"
+[[ -d "${HOME}/.depot_tools" ]] && path+="${HOME}/.depot_tools"
 
 setopt promptsubst
 setopt promptpercent
