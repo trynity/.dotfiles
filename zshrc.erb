@@ -164,3 +164,8 @@ export HOMEBREW_GITHUB_API_TOKEN="<%= CONFIG['homebrew']['git_api_token'] %>"
 
 # travis
 [[ -s "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
+
+# MacOSX GUI Environment Variables
+if [[ $OSTYPE =~ darwin ]]; then
+  defaults write ~/.MacOSX/environment PATH $PATH
+fi
