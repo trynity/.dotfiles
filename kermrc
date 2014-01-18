@@ -1,0 +1,10 @@
+set modem type none
+set line /dev/tty.usbserial-AM01CAW1
+set carrier-watch off
+set speed 9600
+set parity none
+set flow xon/xoff
+set block-check 3
+set transfer mode manual
+set file type binary
+set control prefix all
