@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+my ($port, $proto) = @ARGV;
+
+if (not defined $port) {
+  die "USAGE: $0 port proto\nExample: $0 22 tcp\n";
+}
+
+if (not defined $proto) {
+	die "USAGE: $0 port proto\nExample: $0 22 tcp\n";
+}
+
+my ($name, $aliases, $port_number,
+     $protocol_name) = getservbyport($port, $proto);
+
+print "Name = $name\n";
+# print "Aliases = $aliases\n";
+print "Port Number = $port_number\n";
+print "Protocol Name = $protocol_name\n";
