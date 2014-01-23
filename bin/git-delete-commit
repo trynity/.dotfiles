@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+HASH=$1
+
+if [[ -z $HASH ]]; then
+  echo "Usage: $0 SHA1-HASH"
+  echo "Example: $0 2ec0230e3151a52e4668a912662350d14b174f19"
+  exit 1
+fi
+
+git rebase -p --onto "${HASH}^" "${HASH}"
