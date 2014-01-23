@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+codesign -s codesign-cert "$1"
