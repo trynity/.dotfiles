@@ -1,38 +1,5 @@
 export LANG="en_US.UTF-8"
 
-# Google Go
-export GOPATH="${HOME}/.go"
-
-# autoenv
-[[ -s "/usr/local/opt/autoenv/activate.sh" ]] && source "/usr/local/opt/autoenv/activate.sh"
-AUTOENV_SOURCED=1
-
-# perlbrew
-if [[ -s "${HOME}/.perlbrew/etc/bashrc" ]]; then
-  export PERLBREW_ROOT=~/.perlbrew
-  source "${HOME}/.perlbrew/etc/bashrc"
-fi
-
-# phpbrew
-if [[ -s "${HOME}/.phpbrew/bashrc" ]]; then
-  export PHPBREW_SET_PROMPT=1
-  source "${HOME}/.phpbrew/bashrc"
-fi
-
-# nvm
-[[ -s "${HOME}/.nvm/nvm.sh" ]] && source "${HOME}/.nvm/nvm.sh"
-
-# RVM
-[[ -d "/usr/local/rvm/bin" ]] && path+="/usr/local/rvm/bin"
-[[ -d "${HOME}/.rvm/bin" ]] && path+="${HOME}/.rvm/bin"
-export rvmsudo_secure_path=0 # Disable warning with "rvmsudo"
-
-# tmuxinator
-[[ -s "${HOME}/.tmuxinator/scripts/tmuxinator" ]] && source "${HOME}/.tmuxinator/scripts/tmuxinator"
-
-# Google Depot Tools
-[[ -d "${HOME}/.depot_tools" ]] && path+="${HOME}/.depot_tools"
-
 setopt promptsubst
 setopt promptpercent
 unsetopt correct_all # Disable autocorrection
@@ -40,134 +7,24 @@ setopt correct # Selective typo correction
 
 fpath+=(~/.zsh/completion)
 
-ZSH=$HOME/.oh-my-zsh
+ZSH="${HOME}/.oh-my-zsh"
 
 ZSH_THEME="mirell"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Removed plugins:
-# (none)
-plugins=()
+for f ("${HOME}/.zsh.d/"*) { source $f }
 
-[[ -n $AUTOENV_SOURCED ]] && plugins+=autoenv
-(($+commands[brew])) && plugins+=brew
-(($+commands[bundler])) && plugins+=bundler
-(($+commands[cpanm])) && plugins+=cpanm
-(($+commands[gem])) && plugins+=gem
-(($+commands[git])) && plugins+=git
-(($+commands[git-extras])) && plugins+=git-extras
-(($+commands[heroku])) && plugins+=heroku
-(($+commands[hg])) && plugins+=mercurial
-(($+commands[hub])) && plugins+=hub
-(($+commands[knife])) && plugins+=knife
-(($+commands[nanoc])) && plugins+=nanoc
-(($+commands[node])) && plugins+=node
-(($+commands[npm])) && plugins+=npm
-(($+commands[pip])) && plugins+=pip
-(($+commands[perl])) && plugins+=perl
-(($+commands[rvm])) && plugins+=rvm
-(($+commands[svn])) && plugins+=svn
-(($+commands[tmux])) && plugins+=tmux
-(($+commands[vagrant])) && plugins+=vagrant
-
-if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
-  plugins+=(virtualenvwrapper)
-fi
-
-if [[ $OSTYPE =~ darwin ]]; then
-  # export PERL5LIB="/Applications/Xcode.app/Contents/Developer/Library/Perl/5.12/darwin-thread-multi-2level"
-  plugins+=(osx)
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-# Default Editor for MacOSX: Sublime Text
-if [[ $OSTYPE =~ darwin ]]; then
-  (($+commands[subl])) && export EDITOR="subl -n"
-  alias updatedb="/usr/libexec/locate.updatedb"
-  zmodload zsh/attr # Builtins for manipulating extended attributes (xattr)
-
-fi
-
-if [[ -z $SSH_CLIENT ]]; then
-  # Too many keys in the keychain
-  # (($+commands[keychain])) && eval $(keychain --eval) && eval $(ssh-add ~/.ssh/keys/*[^.pub] &> /dev/null)
-  (($+commands[keychain])) && eval $(keychain --eval)
-fi
-
-# virtualenvwrapper
-if [[ -s "/usr/local/share/python/virtualenvwrapper.sh" ]]; then
-  export WORKON_HOME="${HOME}/.virtualenvs"
-  source "/usr/local/share/python/virtualenvwrapper.sh"
-fi
+source "${ZSH}/oh-my-zsh.sh"
 
 # Rehash completions
 zstyle ':completion:*' rehash true
 
-# Python
-export PYTHONSTARTUP="~/.pythonrc"
-
-# Homebrew Casks
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# Use .history for zsh's history
-export HISTFILE="${HOME}/.history/zsh_history"
-
-# Disable less history
-export LESSHISTFILE=/dev/null
-
-# Use bash completion scripts
-# autoload bashcompinit
-# bashcompinit
-
-# if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
-#   bash_source $(brew --prefix)/etc/bash_completion
-# fi
-
-# ccache configuration
-# Per:
-# * http://petereisentraut.blogspot.com/2011/05/ccache-and-clang.html
-# * http://petereisentraut.blogspot.com/2011/09/ccache-and-clang-part-2.html
-if (($+commands[ccache])); then
-  export CCACHE_LOGFILE="${HOME}/.log/ccache.log"
-  export CCACHE_CPP2=yes # Run cpp twice
-fi
-
-# One final path cleanup
-typeset -U path
-
-# docbook
-[[ -s "/usr/local/etc/xml/catalog" ]] && export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
-
-# Android SDK
-[[ -d "/usr/local/opt/android-sdk" ]] && export ANDROID_HOME="/usr/local/opt/android-sdk"
-
-# OpenSSL Certs
-if [[ -s "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]]; then
-	export SSL_CERT_FILE="/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
-fi
+# I really want this in zsh.d/homebrew, but I haven't figured out a way to deal with templates
+# in subdirectories. Sigh.
 
 export HOMEBREW_GITHUB_API_TOKEN="<%= CONFIG['homebrew']['git_api_token'] %>"
 
-# travis
-[[ -s "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
-
-# MacOSX GUI Environment Variables
-if [[ $OSTYPE =~ darwin ]]; then
-  defaults write ~/.MacOSX/environment PATH $PATH
-fi
+# One final path cleanup
+typeset -U path

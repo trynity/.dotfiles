@@ -1,0 +1,19 @@
+if [[ ($OSTYPE =~ darwin) ]] && (($+commands[brew])); then
+    ### Homebrew
+
+    # Homebrew Casks
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+    # OpenSSL Certs
+    if [[ -s "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt" ]]; then
+      export SSL_CERT_FILE="/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
+    fi
+
+    # Use bash completion scripts
+    # autoload bashcompinit
+    # bashcompinit
+
+    # if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
+    #   bash_source $(brew --prefix)/etc/bash_completion
+    # fi
+fi

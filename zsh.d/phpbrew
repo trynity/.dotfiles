@@ -1,0 +1,4 @@
+if [[ -s "${HOME}/.phpbrew/bashrc" ]]; then
+  export PHPBREW_SET_PROMPT=1
+  source "${HOME}/.phpbrew/bashrc"
+fi

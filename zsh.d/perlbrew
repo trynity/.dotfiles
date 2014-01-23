@@ -1,0 +1,4 @@
+if [[ -s "${HOME}/.perlbrew/etc/bashrc" ]]; then
+  export PERLBREW_ROOT=~/.perlbrew
+  source "${HOME}/.perlbrew/etc/bashrc"
+fi

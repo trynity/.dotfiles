@@ -1,0 +1,32 @@
+if [[ $OSTYPE =~ darwin ]]; then
+
+  # export PERL5LIB="/Applications/Xcode.app/Contents/Developer/Library/Perl/5.12/darwin-thread-multi-2level"
+  plugins+=(osx)
+
+  # Markdown Editor
+  alias mou="open /Applications/Mou.app"
+
+  # Linux way of listing USB devices
+  alias lsusb='system_profiler SPUSBDataType'
+
+  # We're in the land of otool
+  alias ldd='otool -L'
+
+  alias cd-tempdir="cd $(mktemp -d -t cd-tempdir)"
+
+  # Easier way to find the routes
+  alias routes="netstat -nr"
+
+  # Sublime Text Editor
+  (($+commands[subl])) && export EDITOR="subl -n"
+
+  # Mac OS X moved updatedb
+  alias updatedb="/usr/libexec/locate.updatedb"
+
+  # HFS+ xattr
+  zmodload zsh/attr # Builtins for manipulating extended attributes (xattr)
+
+  # I'm not even sure this works
+  defaults write ~/.MacOSX/environment PATH $PATH &> /dev/null
+
+fi
