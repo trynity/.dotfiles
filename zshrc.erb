@@ -1,8 +1,10 @@
 export LANG="en_US.UTF-8"
 
+unsetopt correct_all # Disable autocorrection
+
 setopt promptsubst
 setopt promptpercent
-unsetopt correct_all # Disable autocorrection
+setopt null_glob # Just return nothing for non-existant fileglob
 setopt correct # Selective typo correction
 
 fpath+=(~/.zsh/completion)
