@@ -12,6 +12,10 @@ GEM
     ffi (1.9.0-java)
     git (1.2.5)
     highline (1.6.19)
+    json (1.7.7)
+    json (1.7.7-java)
+    opencnam (1.0.0)
+      json (~> 1.7.7)
     os (0.9.6)
     rake (10.0.4)
     ruby-keychain (0.1.1)
@@ -27,6 +31,7 @@ DEPENDENCIES
   brewdler
   erubis
   git
+  opencnam
   os
   rake
   ruby-keychain

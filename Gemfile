@@ -15,3 +15,7 @@ end
 group :tmux do
   gem 'teamocil'
 end
+
+group :bin do
+	gem 'opencnam'
+end
