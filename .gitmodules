@@ -32,3 +32,6 @@
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = git@github.com:elzr/vim-json.git
+[submodule "src/hg-prompt"]
+	path = src/hg-prompt
+	url = git@github.com:mirell/hg-prompt.git
