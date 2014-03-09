@@ -1,8 +1,10 @@
 # Removed plugins:
 # (none)
+
 plugins=()
 
 [[ -n $AUTOENV_SOURCED ]] && plugins+=autoenv
+
 (($+commands[brew])) && plugins+=brew
 (($+commands[bundler])) && plugins+=bundler
 (($+commands[cpanm])) && plugins+=cpanm
@@ -22,6 +24,8 @@ plugins=()
 (($+commands[svn])) && plugins+=svn
 (($+commands[tmux])) && plugins+=tmux
 (($+commands[vagrant])) && plugins+=vagrant
+(($+commands[make])) && plugins+=make
+
 
 if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
   plugins+=(virtualenvwrapper)
