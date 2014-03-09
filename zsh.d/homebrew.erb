@@ -1,5 +1,6 @@
+### Homebrew
+
 if [[ ($OSTYPE =~ darwin) ]] && (($+commands[brew])); then
-    ### Homebrew
 
     # Homebrew Casks
     export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -13,7 +14,19 @@ if [[ ($OSTYPE =~ darwin) ]] && (($+commands[brew])); then
     # autoload bashcompinit
     # bashcompinit
 
+    # Bash Completion
     # if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
     #   bash_source $(brew --prefix)/etc/bash_completion
     # fi
+
+    if [[ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    fi
+
+    if [[ -f "$(brew --prefix)/opt/zsh-history-substring-search/zsh-history-substring-search.zsh" ]]; then
+    source "$(brew --prefix)/opt/zsh-history-substring-search/zsh-history-substring-search.zsh"
+    fi
+
+    export HOMEBREW_GITHUB_API_TOKEN="<%= CONFIG['homebrew']['git_api_token'] %>"
+
 fi
