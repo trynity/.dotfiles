@@ -16,7 +16,9 @@ ZSH_THEME="mirell"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-for f ("${HOME}/.zsh.d/"*) { source $f }
+for file in $(tree -i -n --noreport -f "${HOME}"/.dotfiles/zsh.d); do
+	[[ -f $file ]] && source $file
+done
 
 source "${ZSH}/oh-my-zsh.sh"
 
