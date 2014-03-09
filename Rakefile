@@ -1,72 +1,104 @@
 require 'bundler/setup'
 require 'rake'
-require 'erubis'
 require 'fileutils'
 require 'yaml'
 require 'os'
+
+require 'erubis'
+require 'tilt'
 
 if OS.mac?
   require 'keychain'
   KEYCHAIN = Keychain.default
 end
 
-begin
-  CONFIG = YAML::load(File.open('config.yml'))
-rescue
-  puts "No configuration file!"
-  CONFIG = Hash.new
-end
-
 task :default => [:install]
 
 desc "Install the dotfiles into user's home directory"
 task :install do
-
-  replace_all = false
-
-  Dir['*'].each do |file|
-
-    excluded = ['Rakefile', 'README.rdoc', 'LICENSE', 'Gemfile', 'Gemfile.lock', 'config.yml']
-    next if excluded.include? file
-
-    dotfile = File.join(ENV['HOME'], ".#{file}")
-
-    if File.exist?(dotfile)
-      if File.identical? file, dotfile
-        puts "Identical ~/.#{file}"
-      elsif replace_all
-        link_file(file, true)
-      else
-        print "Overwrite ~/.#{file}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          link_file(file, true)
-        when 'y'
-          link_file(file, true)
-        when 'q'
-          exit
-        else
-          puts "Skipping ~/.#{file}"
-        end
-      end
-    else
-      link_file(file)
-    end
-  end
+  dots = Dotfiles.new
+  dots.run
 end
 
-def link_file(file, force = false)
-  if file =~ /.erb$/
-    puts "Generating ~/.#{file.sub('.erb', '')}"
-    file_path = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-    File.open(file_path, 'w') do |new_file|
-      new_file.write Erubis::Eruby.new(File.read(file)).result(binding)
+class Dotfiles
+
+  def initialize
+    @replace = false
+    @excluded = %w(Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh)
+    @files = (Dir['**/**'] - @excluded).sort
+
+    begin
+      @config = YAML::load(File.open('config.yml'))
+    rescue
+      exit "No configuration file!"
     end
-    # We generally don't want the world to read our lovely configs
-    File.chmod(0600, file_path)
-  else
-    puts "Linking ~/.#{file}"
-    ln_s "#{ENV['PWD']}/#{file}", "#{ENV['HOME']}/.#{file}", :force => force
   end
+
+  def prompt(file)
+    print "Overwrite ~/.#{file}? [ynaq] "
+    return $stdin.gets.chomp
+  end
+
+  def run
+    @files.each do |file|
+      @dotfile = File.join(ENV['HOME'], ".#{file}")
+      if File.directory?(file)
+        mkdir(file)
+      elsif File.identical?(file, @dotfile)
+        puts "Identical ~/.#{file}"
+      elsif template? file
+        generate(file)
+      elsif !@replace
+        overwrite(file)
+      elsif @replace
+        link(file)
+      end
+    end
+  end
+
+  def mkdir(file)
+    path = "#{ENV['HOME']}/.#{file}"
+    File.unlink(path) if File.symlink?(path)
+    Dir.mkdir(path) unless Dir.exists?(path)
+  end
+
+  def link(file, force = false)
+    @dotfile = File.join(ENV['HOME'], ".#{file}")
+    unless template?(file)
+      puts "Linking #{@dotfile}"
+      FileUtils.ln_s(file, @dotfile, :force => force)
+    end
+  end
+
+  def template?(file)
+    Tilt.template_for(file)
+  end
+
+  def overwrite(file)
+    case prompt(file)
+    when 'a'
+      @replace = true
+      link(file, true)
+    when 'y'
+      link(file, true)
+    when 'q'
+      exit 1
+    when 'n'
+      puts "Skipping ~/.#{file}"
+    else
+      prompt
+    end
+  end
+
+  def generate(file)
+    case file
+    when /.erb$/
+      puts "Generating ~/.#{file.sub('.erb', '')}"
+      path = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
+      template = Tilt.new(file).render(@config)
+      File.open(path, 'w') { |f| f.write template }
+      File.chmod(0600, path) # We generally don't want the world to read our lovely configs
+    end
+  end
+
 end
