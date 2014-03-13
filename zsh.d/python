@@ -1,4 +1,4 @@
-[[ -f "${HOME}/.pythonrc" ]] && export PYTHONSTARTUP="~/.pythonrc"
+[[ -f "${HOME}/.pythonrc" ]] && export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 if [[ -s "/usr/local/share/python/virtualenvwrapper.sh" ]]; then
   export WORKON_HOME="${HOME}/.virtualenvs"
