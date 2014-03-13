@@ -38,3 +38,6 @@
 [submodule "vim/bundle/vim-notes"]
 	path = vim/bundle/vim-notes
 	url = git@github.com:xolox/vim-notes.git
+[submodule "src/tmux-macosx-pasteboard"]
+	path = src/tmux-macosx-pasteboard
+	url = git@github.com:ChrisJohnsen/tmux-MacOSX-pasteboard.git
