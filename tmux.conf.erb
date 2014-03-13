@@ -66,10 +66,10 @@ if-shell 'command which -s "reattach-to-user-namespace"' 'set-option -g default-
 <% end %>
 
 # Enable mouse only if we're not on an SSH session
-if '[ -z $SSH_CONNECTION ]' 'setw -g mode-mouse on'
-if '[ -z $SSH_CONNECTION ]' 'set -g mouse-select-pane on'
-if '[ -z $SSH_CONNECTION ]' 'set -g mouse-resize-pane on'
-if '[ -z $SSH_CONNECTION ]' 'set -g mouse-select-window on'
+# if '[ -z $SSH_CONNECTION ]' 'setw -g mode-mouse on'
+# if '[ -z $SSH_CONNECTION ]' 'set -g mouse-select-pane on'
+# if '[ -z $SSH_CONNECTION ]' 'set -g mouse-resize-pane on'
+# if '[ -z $SSH_CONNECTION ]' 'set -g mouse-select-window on'
 
 #### COLOR
 
