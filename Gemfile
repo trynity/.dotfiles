@@ -15,6 +15,7 @@ group :templates do
     gem 'liquid'    # Liquid
     gem 'rdoc'      # RDoc
     gem 'redcarpet'
+    gem 'RedCloth'
 end
 
 group :homebrew do

@@ -1,6 +1,3 @@
-# Removed plugins:
-# (none)
-
 plugins=()
 
 [[ -n $AUTOENV_SOURCED ]] && plugins+=autoenv
@@ -25,7 +22,9 @@ plugins=()
 (($+commands[tmux])) && plugins+=tmux
 (($+commands[vagrant])) && plugins+=vagrant
 (($+commands[make])) && plugins+=make
+(($+commands[lein])) && plugins+=lein
 
+[[ $OSTYPE =~ darwin ]] && plugins+=(osx)
 
 if [[ -s $(which virtualenvwrapper_lazy.sh) ]]; then
   plugins+=(virtualenvwrapper)

@@ -1,10 +1,13 @@
 require 'bundler/setup'
-require 'rake'
 require 'fileutils'
 require 'yaml'
-require 'os'
+require 'base64'
 
+require 'os'
+require 'base64'
+require 'rake'
 require 'erubis'
+require 'redcloth'
 require 'tilt'
 
 if OS.mac?
@@ -24,8 +27,10 @@ class Dotfiles
 
   def initialize
     @replace = false
-    @excluded = %w(Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh history src)
-    @files = (Dir['**/**'] - @excluded).sort
+    @excluded = %w(vim/backups vim/swaps Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh sshfs log history src oh-my-zsh)
+    @files = (Dir['*'] - @excluded).sort
+    # @files = (Dir['**/**'] - @excluded).sort
+    # @files.delete_if { |f| @excluded.include? f.split('/')[0] }
 
     begin
       @config = YAML::load(File.open('config.yml'))
@@ -42,9 +47,11 @@ class Dotfiles
   def run
     @files.each do |file|
       @dotfile = File.join(ENV['HOME'], ".#{file}")
-      if File.directory?(file)
-        mkdir(file)
-      elsif File.identical?(file, @dotfile)
+
+      # if File.directory?(file)
+      # mkdir(file)
+
+      if File.identical?(file, @dotfile)
         puts "Identical ~/.#{file}"
       elsif template? file
         generate(file)
@@ -66,7 +73,7 @@ class Dotfiles
     @dotfile = File.join(ENV['HOME'], ".#{file}")
     unless template?(file)
       puts "Linking #{@dotfile}"
-      FileUtils.ln_s(file, @dotfile, :force => force)
+      FileUtils.ln_s("#{ENV['HOME']}/.dotfiles/#{file}", @dotfile, :force => force)
     end
   end
 

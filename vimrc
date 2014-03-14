@@ -1,8 +1,6 @@
 " Pathogen
-filetype off " Pathogen needs to run before plugin indent on
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
-
+runtime bundle/pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -16,7 +14,7 @@ set history=100
 
 set ruler
 
-set incsearch 
+set incsearch
 
 " Tab/Space Settings
 set expandtab

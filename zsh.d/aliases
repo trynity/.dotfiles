@@ -1,2 +1,0 @@
-alias sha256='shasum -a 256'
-alias sha512='shasum -a 512'

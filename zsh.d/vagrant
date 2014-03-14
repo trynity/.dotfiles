@@ -1,2 +1,0 @@
-# Use a global vagrant install if we have access to it
-[[ -w /var/lib/vagrant ]] && export VAGRANT_HOME="/var/lib/vagrant"

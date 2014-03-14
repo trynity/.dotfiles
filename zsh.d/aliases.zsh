@@ -1,10 +1,12 @@
+alias sha256='shasum -a 256'
+alias sha512='shasum -a 512'
+
 if [[ $OSTYPE =~ darwin ]]; then
-
-  # export PERL5LIB="/Applications/Xcode.app/Contents/Developer/Library/Perl/5.12/darwin-thread-multi-2level"
-  plugins+=(osx)
-
   # Markdown Editor
   alias mou="open /Applications/Mou.app"
+
+  # SQLite Editor
+  alias base='open /Applications/Base.mou'
 
   # Linux way of listing USB devices
   alias lsusb='system_profiler SPUSBDataType'
@@ -22,11 +24,4 @@ if [[ $OSTYPE =~ darwin ]]; then
 
   # Mac OS X moved updatedb
   alias updatedb="/usr/libexec/locate.updatedb"
-
-  # HFS+ xattr
-  zmodload zsh/attr # Builtins for manipulating extended attributes (xattr)
-
-  # I'm not even sure this works
-  defaults write ~/.MacOSX/environment PATH $PATH &> /dev/null
-
 fi

@@ -1,3 +1,0 @@
-[[ -d "/usr/local/rvm/bin" ]] && path+="/usr/local/rvm/bin"
-[[ -d "${HOME}/.rvm/bin" ]] && path+="${HOME}/.rvm/bin"
-export rvmsudo_secure_path=0 # Disable warning with "rvmsudo"
