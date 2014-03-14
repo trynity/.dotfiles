@@ -24,6 +24,7 @@ GEM
     rake (10.0.4)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (2.2.2)
     ruby-keychain (0.1.1)
       corefoundation (~> 0.1.3)
       ffi
@@ -45,6 +46,7 @@ DEPENDENCIES
   os
   rake
   rdoc
+  redcarpet
   ruby-keychain
   teamocil
   tilt

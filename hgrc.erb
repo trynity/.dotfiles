@@ -1,5 +1,5 @@
 [ui]
-username = <%= "#{CONFIG['hg']['name']} <#{CONFIG['hg']['email']}>" %>
+username = <%= "#{@config['hg']['name']} <#{@config['hg']['email']}>" %>
 <% if OS.mac? %>
 editor = "subl -nw"
 merge = Kaleidoscope
@@ -20,6 +20,6 @@ Kaleidoscope.args = --merge --output $output --base $base -- $local $other
 hgext.extdiff =
 <% end %>
 hgext.bookmarks =
-hggit = 
+hggit =
 hgext.extdiff =
-prompt = ~/src/hg-prompt/prompt.py
+prompt = /usr/bin/env hg-prompt

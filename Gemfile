@@ -14,6 +14,7 @@ group :templates do
     gem 'kramdown'  # Markdown
     gem 'liquid'    # Liquid
     gem 'rdoc'      # RDoc
+    gem 'redcarpet'
 end
 
 group :homebrew do

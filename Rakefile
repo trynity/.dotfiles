@@ -24,7 +24,7 @@ class Dotfiles
 
   def initialize
     @replace = false
-    @excluded = %w(Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh)
+    @excluded = %w(Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh history src)
     @files = (Dir['**/**'] - @excluded).sort
 
     begin
@@ -95,7 +95,7 @@ class Dotfiles
     when /.erb$/
       puts "Generating ~/.#{file.sub('.erb', '')}"
       path = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-      template = Tilt.new(file).render(@config)
+      template = Tilt.new(file).render(self)
       File.open(path, 'w') { |f| f.write template }
       File.chmod(0600, path) # We generally don't want the world to read our lovely configs
     end

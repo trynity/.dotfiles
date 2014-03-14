@@ -1,4 +1,4 @@
-auth_token: <%= CONFIG['ngrok']['auth_token'] %>
+auth_token: <%= @config['ngrok']['auth_token'] %>
 tunnels:
   ssh:
     hostname: "ngrok.mirell.org"
@@ -8,4 +8,4 @@ tunnels:
     hostname: "ngrok.mirell.org"
     proto:
       http: 8080
-    
+
