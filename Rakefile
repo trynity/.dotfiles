@@ -27,7 +27,7 @@ class Dotfiles
 
   def initialize
     @replace = false
-    @excluded = %w(vim/backups vim/swaps Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh sshfs log history src oh-my-zsh)
+    @excluded = %w(vim/backups vim/swaps Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh sshfs log history src)
     @files = (Dir['*'] - @excluded).sort
     # @files = (Dir['**/**'] - @excluded).sort
     # @files.delete_if { |f| @excluded.include? f.split('/')[0] }
