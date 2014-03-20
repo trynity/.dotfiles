@@ -6,7 +6,7 @@ if [[ $OSTYPE =~ darwin ]]; then
   alias mou="open /Applications/Mou.app"
 
   # SQLite Editor
-  alias base='open /Applications/Base.mou'
+  alias base='open /Applications/Base.app'
 
   # Linux way of listing USB devices
   alias lsusb='system_profiler SPUSBDataType'
@@ -14,7 +14,7 @@ if [[ $OSTYPE =~ darwin ]]; then
   # We're in the land of otool
   alias ldd='otool -L'
 
-  alias cd-tempdir="cd $(mktemp -d -t cd-tempdir)"
+  alias tempdir="$(mktemp -d -t $(random_string))"
 
   # Easier way to find the routes
   alias routes="netstat -nr"
