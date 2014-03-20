@@ -1,3 +1,5 @@
+source ~/.profile
+
 source ~/.bash/completions
 source ~/.bash/functions
 source ~/.bash/path
@@ -8,12 +10,6 @@ source ~/.bash/alias
 
 # Allow ! in commands
 export histchars=
-
-# Change where we save .bash_history
-export HISTFILE=~/.history/bash_history
-
-# Disable less history
-export LESSHISTFILE=/dev/null
 
 # Linux
 [[ $OSTYPE =~ linux ]] && alias brew=emerge
@@ -27,7 +23,7 @@ export LESSHISTFILE=/dev/null
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # perlbrew
-[[ -s "${HOME}/.perlbrew" ]] && export PERLBREW_ROOT="${HOME}/.perlbrew" && export PERLBREW_LOADED=1
+[[ -s "${HOME}/.perlbrew" ]] && export PERLBREW_LOADED=1
 [[ -r "${HOME}/.perlbrew/etc/bashrc" ]] && source "${HOME}/.perlbrew/etc/bashrc"
 
 # pythonbrew

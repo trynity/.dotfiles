@@ -1,0 +1,15 @@
+export DEBFULLNAME="<% @config['debian']['name'] %>"
+export DEBEMAIL="<% @config['debian']['email'] %>"
+export HOMEBREW_GITHUB_API_TOKEN="<%= @config['homebrew']['git_api_token'] %>"
+
+export LANG="en_US.UTF-8"
+
+export LESSHISTFILE="/dev/null"
+export HISTFILE="${HOME}/.history/$(basename shell)_history"
+
+# Disable warning with "rvmsudo"
+export rvmsudo_secure_path=0
+
+export GOPATH="${HOME}/.go"
+export PERLBREW_ROOT="${HOME}/.perlbrew"
+export WORKON_HOME="${HOME}/.virtualenvs"

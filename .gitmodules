@@ -50,3 +50,6 @@
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = git@github.com:tpope/vim-pathogen.git
+[submodule "src/autoenv"]
+	path = src/autoenv
+	url = git://github.com/kennethreitz/autoenv.git
