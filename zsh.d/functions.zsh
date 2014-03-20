@@ -25,3 +25,8 @@ function add-path-if-exists {
 		path+=$1
 	fi
 }
+
+# DO NOT USE FOR PASSWORDS
+function random_string {
+  echo $(cat /dev/random | LC_CTYPE=C tr -dc "[:alpha:]" | head -c 8)
+}
