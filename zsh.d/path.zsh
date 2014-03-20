@@ -8,7 +8,12 @@ path=(${HOME}/Library/Haskell/bin $path)
 path=(/opt/X11/bin $path)
 
 # TexLive
-if-command-exists textdist "$(texdist --current --expand)/bin/universal-darwin"
+if-command-exists textdist textdist-init
+
+function textdist-init {
+	textdist-prefix=$(texdist --current --expand)
+	path=("${textdist-prefix}/bin/universal-darwin" $path)
+}
 
 # Local bin directoies
 path=(${HOME}/.bin $path)
