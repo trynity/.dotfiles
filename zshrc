@@ -1,4 +1,4 @@
-export LANG="en_US.UTF-8"
+source ~/.env
 
 unsetopt correct_all 	# Disable autocorrection
 setopt promptsubst
@@ -9,7 +9,6 @@ setopt correct 			# Selective typo correction
 source "${HOME}/.zsh.d/functions.zsh"
 
 export HISTFILE="${HOME}/.history/zsh_history" 	# Use .history for zsh's history
-export LESSHISTFILE=/dev/null 					# Disable less history
 
 ### RVM
 add-path-if-exists "/usr/local/rvm/bin"
@@ -61,6 +60,7 @@ source "${HOME}/.zsh.d/path.zsh"
 source "${HOME}/.zsh.d/aliases.zsh"
 source "${HOME}/.zsh.d/keychain.zsh"
 source "${HOME}/.zsh.d/osx.zsh"
+source "${HOME}/.zsh.d/linux.zsh"
 source "${HOME}/.zsh.d/aws.zsh"
 source "${HOME}/.zsh.d/ccache.zsh"
 source "${HOME}/.zsh.d/homebrew.zsh"
@@ -73,6 +73,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Rehash completions
 zstyle ':completion:*' rehash true
+
+# TODO: Figure out why my magic PATH reordering isn't working
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # One final path cleanup
 typeset -U path
