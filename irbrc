@@ -7,3 +7,7 @@ class Object
     (self.methods - Object.instance_methods).sort
   end
 end
+
+require 'pry'
+Pry.start
+exit
