@@ -1,6 +1,5 @@
-# rvm
-path+=("${HOME}/.rvm/bin")
+export ZSH_CUSTOM="${HOME}/.zsh"
+export ZSH_LIB="${ZSH_CUSTOM}/lib"
 
-# Add /usr/local/[s]bin to PATH
-path=(/usr/local/bin $path)
-path=(/usr/local/sbin $path)
+source "${ZSH_LIB}/functions.zsh"
+source "${ZSH_LIB}/path.zsh"
