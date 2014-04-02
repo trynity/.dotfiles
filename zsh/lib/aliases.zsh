@@ -1,6 +1,8 @@
 alias sha256='shasum -a 256'
 alias sha512='shasum -a 512'
 
+alias whereis='type -p'
+
 if [[ $OSTYPE =~ darwin ]]; then
   # Markdown Editor
   alias mou="open /Applications/Mou.app"
