@@ -3,10 +3,8 @@
 	path = nvm
 	# url = git@github.com:creationix/nvm.git
 	url = git@github.com:mirell/nvm.git
-[submodule "jenv"]
-	path = jenv
- 	# url = git@github.com:gcuisinier/jenv.git
- 	url = git@github.com:mirell/jenv.git
+
+# zsh plugins
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	# url = git@github.com:robbyrussell/oh-my-zsh.git
