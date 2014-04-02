@@ -1,7 +1,5 @@
 plugins=()
 
-[[ -n $AUTOENV_SOURCED ]] && plugins+=autoenv
-
 (($+commands[brew])) && plugins+=brew
 (($+commands[bundler])) && plugins+=bundler
 (($+commands[cpanm])) && plugins+=cpanm
