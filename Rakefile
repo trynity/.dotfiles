@@ -27,7 +27,7 @@ class Dotfiles
 
   def initialize
     @replace = false
-    @excluded = %w(vim/backups vim/swaps Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh sshfs log history src)
+    @excluded = %w(Rakefile README.md LICENSE Gemfile Gemfile.lock config.yml ssh src)
     @files = (Dir['*'] - @excluded).sort
     # @files = (Dir['**/**'] - @excluded).sort
     # @files.delete_if { |f| @excluded.include? f.split('/')[0] }
@@ -48,16 +48,28 @@ class Dotfiles
     @files.each do |file|
       @dotfile = File.join(ENV['HOME'], ".#{file}")
 
-      # if File.directory?(file)
-      # mkdir(file)
-
-      if File.identical?(file, @dotfile)
+      # If the file is identical, notify the user
+      if File.identical?(file, @dotfile) 
         puts "Identical ~/.#{file}"
+
+      # If the file is a template, generate it
       elsif template? file
         generate(file)
-      elsif !@replace
-        overwrite(file)
-      elsif @replace
+
+      # If the file already exists
+      elsif File.exist?(@dotfile)
+
+        # If we haven't already set the @replace var, prompt the user
+        if !@replace
+          overwrite(file)
+
+        # We've had the @replace var set, so go ahead and overwrite
+        elsif @replace
+          link(file, true)
+        end
+
+      # The file doesn't exist, isn't a template, so go ahead and link it
+      else
         link(file)
       end
     end
