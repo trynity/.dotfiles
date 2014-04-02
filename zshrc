@@ -6,12 +6,6 @@ setopt promptpercent
 setopt null_glob 		# Just return nothing for non-existant fileglob
 setopt correct 			# Selective typo correction
 
-source "${HOME}/.zsh.d/functions.zsh"
-
-### RVM
-add-path-if-exists "/usr/local/rvm/bin"
-add-path-if-exists "${HOME}/.rvm/bin"
-
 ### perlbrew
 if [[ -s "${HOME}/.perlbrew/etc/bashrc" ]]; then
   source "${HOME}/.perlbrew/etc/bashrc"
@@ -46,27 +40,28 @@ source-if-exists "/usr/local/opt/autoenv/activate.sh"
 # Use a global vagrant install if we have access to it
 [[ -w /var/lib/vagrant ]] && export VAGRANT_HOME="/var/lib/vagrant"
 
-source "${HOME}/.zsh.d/google.zsh"
-source "${HOME}/.zsh.d/path.zsh"
-source "${HOME}/.zsh.d/aliases.zsh"
-source "${HOME}/.zsh.d/keychain.zsh"
-source "${HOME}/.zsh.d/osx.zsh"
-source "${HOME}/.zsh.d/linux.zsh"
-source "${HOME}/.zsh.d/aws.zsh"
-source "${HOME}/.zsh.d/ccache.zsh"
-source "${HOME}/.zsh.d/homebrew.zsh"
-source "${HOME}/.zsh.d/plugins.zsh"
+ZSH_LIB="${HOME}/.zsh/lib/"
+
+source "${ZSH_LIB}/google.zsh"
+source "${ZSH_LIB}/aliases.zsh"
+source "${ZSH_LIB}/keychain.zsh"
+source "${ZSH_LIB}/osx.zsh"
+source "${ZSH_LIB}/linux.zsh"
+source "${ZSH_LIB}/aws.zsh"
+source "${ZSH_LIB}/ccache.zsh"
+source "${ZSH_LIB}/homebrew.zsh"
+source "${ZSH_LIB}/plugins.zsh"
 
 ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="mirell"
+
+# oh-my-zsh
+export DISABLE_UPDATE_PROMPT=true
 
 source "${ZSH}/oh-my-zsh.sh"
 
 # Rehash completions
 zstyle ':completion:*' rehash true
-
-# TODO: Figure out why my magic PATH reordering isn't working
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # One final path cleanup
 typeset -U path
