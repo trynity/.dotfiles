@@ -1,8 +1,12 @@
+# Add /usr/local/[s]bin to PATH
+path=(/usr/local/bin $path)
+path=(/usr/local/sbin $path)
+
 # Add Haskell's cabal bin directory to PATH
-path=(${HOME}/.cabal/bin $path)
+path=("${HOME}/.cabal/bin" $path)
 
 # Add Haskell Platform bin directory to PATH
-path=(${HOME}/Library/Haskell/bin $path)
+path=("${HOME}/Library/Haskell/bin" $path)
 
 # XQuartz
 path=(/opt/X11/bin $path)
@@ -45,4 +49,12 @@ done
 
 path=($rvm_paths $nvm_paths $perlbrew_paths $path)
 
+# rvm
+path=("${HOME}/.rvm/bin" $path)
+path=("/usr/local/rvm/bin" $path)
+
 typeset -U path
+
+# Nifty Trick. Remove directories in PATH that don't exist!
+path=($^path(N))
+
