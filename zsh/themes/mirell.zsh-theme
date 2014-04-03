@@ -5,12 +5,12 @@ fi
 
 local nvm=''
 if which nvm &> /dev/null; then
-  nvm='%{%F{magenta}%}‹node $(nvm current)›%{%f%}'
+  nvm='%{%F{magenta}%}‹node $(nvm_prompt_info)›%{%f%}'
 fi
 
 local perlbrew=''
 if which perlbrew &> /dev/null; then
-	perlbrew="%{%F{blue}%}‹perl $(perlbrew use | sed 's/.*-//')›%{%f%}"
+	perlbrew="%{%F{blue}%}‹${PERLBREW_PERL}›%{%f%}"
 fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{%F{red}%}"
