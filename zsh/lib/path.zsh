@@ -11,6 +11,9 @@ path=("${HOME}/Library/Haskell/bin" $path)
 # XQuartz
 path=(/opt/X11/bin $path)
 
+# Go
+path=("${GOPATH}/bin" $path)
+
 # TexLive
 if-command-exists textdist textdist-init
 
