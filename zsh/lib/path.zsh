@@ -15,12 +15,12 @@ path=(/opt/X11/bin $path)
 path=("${GOPATH}/bin" $path)
 
 # TexLive
-if-command-exists textdist textdist-init
-
 function textdist-init {
-	textdist-prefix=$(texdist --current --expand)
-	path=("${textdist-prefix}/bin/universal-darwin" $path)
+	textdist_prefix=$(texdist --current --expand)
+	path=("${textdist_prefix}/bin/universal-darwin" $path)
 }
+
+if-command-exists texdist textdist-init
 
 # Local bin directoies
 path=(${HOME}/.bin $path)
