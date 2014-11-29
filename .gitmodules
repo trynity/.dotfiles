@@ -2,13 +2,13 @@
 [submodule "nvm"]
 	path = nvm
 	# url = git@github.com:creationix/nvm.git
-	url = git@github.com:mirell/nvm.git
+	url = git@github.com:trynity/nvm.git
 
 # zsh plugins
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	# url = git@github.com:robbyrussell/oh-my-zsh.git
-	url = git@github.com:mirell/oh-my-zsh.git
+	url = git@github.com:robbyrussell/oh-my-zsh.git
 
 # vim plugins
 [submodule "vim/bundle/nerdtree"]
@@ -32,7 +32,7 @@
 	url = git@github.com:elzr/vim-json.git
 [submodule "src/hg-prompt"]
 	path = src/hg-prompt
-	url = git@github.com:mirell/hg-prompt.git
+	url = git@github.com:trynity/hg-prompt.git
 [submodule "vim/bundle/vim-notes"]
 	path = vim/bundle/vim-notes
 	url = git@github.com:xolox/vim-notes.git
