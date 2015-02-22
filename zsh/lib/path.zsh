@@ -32,8 +32,6 @@ if [[ -e /usr/local/bin/brew ]]; then
 	export CCACHE_DIR="/Library/Caches/ccache"
 fi
 
-path=("${GOPATH}/bin" $path)
-
 # nvm/rvm/perlbrew path reodering
 
 nvm_paths=()
