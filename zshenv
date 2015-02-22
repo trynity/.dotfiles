@@ -1,3 +1,5 @@
+source ~/.profile
+
 export ZSH_CUSTOM="${HOME}/.zsh"
 export ZSH_LIB="${ZSH_CUSTOM}/lib"
 

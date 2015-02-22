@@ -1,5 +1,3 @@
-source ~/.profile
-
 unsetopt correct_all 	# Disable autocorrection
 setopt promptsubst
 setopt promptpercent
