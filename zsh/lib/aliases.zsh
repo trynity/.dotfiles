@@ -3,6 +3,8 @@ alias sha512='shasum -a 512'
 
 alias whereis='type -p'
 
+alias -s git='git clone'
+
 if [[ $OSTYPE =~ darwin ]]; then
   # Markdown Editor
   alias mou="open /Applications/Mou.app"
