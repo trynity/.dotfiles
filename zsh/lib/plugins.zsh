@@ -6,6 +6,7 @@ plugins=()
 (($+commands[gem])) && plugins+=gem
 (($+commands[git])) && plugins+=git
 (($+commands[git-extras])) && plugins+=git-extras
+(($+commands[gpg-agent])) && plugins+=gpg-agent
 (($+commands[heroku])) && plugins+=heroku
 (($+commands[hg])) && plugins+=mercurial
 (($+commands[hub])) && plugins+=hub
