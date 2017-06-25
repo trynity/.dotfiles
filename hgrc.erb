@@ -14,12 +14,3 @@ opts.ksdiff = --changeset --wait --filelist
 Kaleidoscope.executable = /usr/local/bin/ksdiff
 Kaleidoscope.args = --merge --output $output --base $base -- $local $other
 <% end %>
-
-[extensions]
-<% if OS.mac? %>
-hgext.extdiff =
-<% end %>
-hgext.bookmarks =
-hggit =
-hgext.extdiff =
-prompt = /usr/bin/env hg-prompt
