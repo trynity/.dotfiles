@@ -63,3 +63,24 @@ zstyle ':completion:*' rehash true
 
 # One final path cleanup
 typeset -U path
+
+export PUPPETSERVERS=( 'puppet0001.prn.parsec.apple.com' 'puppet0002.prn.parsec.apple.com' 'puppet0003.prn.parsec.apple.com' )
+export OPS=ops0001.prn.parsec.apple.com
+per() {
+       [[ $# -ne 2 ]] && return 1
+   for ps in ${PUPPETSERVERS[@]}; do
+           ssh -n -o BatchMode=yes $ps "pbr $1 $2" 2>&1 &
+   done
+   wait
+   echo "Puppet branch reset completed"
+       return 0
+}
+esp() {
+       ssh $OPS "esp"
+}
+
+puppet_noop() {
+       local host="$1"
+       [[ -z $host ]] && return 1
+       ssh "$host" "puppet_noop tmirell"
+}

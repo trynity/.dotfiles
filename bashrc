@@ -29,9 +29,6 @@ export histchars=
 # pythonbrew
 [[ -s "{$HOME}/.pythonbrew/etc/bashrc" ]] && source "{$HOME}/.pythonbrew/etc/bashrc" && export PYTHONBREW_LOADED=1
 
-# Google depot_tools
-[[ -d ${HOME}/src/depot_tools ]] && export PATH="${HOME}/src/depot_tools:${PATH}"
-
 # python
 export PYTHONSTARTUP=~/.pythonrc
 
