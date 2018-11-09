@@ -1,10 +1,4 @@
 # Version Managers
-[submodule "nvm"]
-	path = nvm
-	# url = git@github.com:creationix/nvm.git
-	url = git@github.com:trynity/nvm.git
-
-# zsh plugins
 [submodule "src/hardlink"]
 	path = src/hardlink
 	url = git@github.com:selkhateeb/hardlink.git
