@@ -1,6 +1,3 @@
-" Pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -33,7 +30,3 @@ set backspace=indent,eol,start
 "map :W to :w or :Q to :q
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
-
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
