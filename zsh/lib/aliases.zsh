@@ -5,6 +5,8 @@ alias whereis='type -p'
 
 alias -s git='git clone'
 
+alias unset-proxies='unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY'
+
 if [[ $OSTYPE =~ darwin ]]; then
   # Markdown Editor
   alias mou="open /Applications/Mou.app"
